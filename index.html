@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Calculator</title>
+</head>
+<body>
+<div class="container">
+    <div class="calculator">
+        <div class="head">
+            <button id="showHistory"><img src="https://snipboard.io/aEj7wD.jpg" alt="history"></button>
+            <span class="output">0</span>
+        </div>
+        <div class="buttons active">
+            <div class="buttons-item">
+                <button data-type="operation" data-value="reset">AC</button>
+                <button data-type="operation" data-value="negative">+/-</button>
+                <button data-type="operation" data-value="percent">%</button>
+                <button data-type="operation" data-value="div">÷</button>
+            </div>
+            <div class="buttons-item">
+                <button data-type="number" data-value="7">7</button>
+                <button data-type="number" data-value="8">8</button>
+                <button data-type="number" data-value="9">9</button>
+                <button data-type="operation" data-value="mul">х</button>
+            </div>
+            <div class="buttons-item">
+                <button data-type="number" data-value="4">4</button>
+                <button data-type="number" data-value="5">5</button>
+                <button data-type="number" data-value="6">6</button>
+                <button data-type="operation" data-value="sub">&ndash;</button>
+            </div>
+            <div class="buttons-item">
+                <button data-type="number" data-value="1">1</button>
+                <button data-type="number" data-value="2">2</button>
+                <button data-type="number" data-value="3">3</button>
+                <button data-type="operation" data-value="add">+</button>
+            </div>
+            <div class="buttons-item">
+                <button class="zero" data-type="number" data-value="0">0</button>
+                <button data-type="number" data-value=".">.</button>
+                <button data-type="operation" data-value="equals">=</button>
+            </div>
+        </div>
+        <div class="history"></div>
+    </div>
+</div>
+<script src="js/calc.js" defer></script>
+<script src="js/rounding.js" defer></script>
+<script src="js/script.js" defer></script>
+</body>
+</html>
