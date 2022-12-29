@@ -11,6 +11,11 @@ pipeline {
         }
 
         stage('Copy code') {
+            when {
+                allOf {
+                    fileExists '/var/www/html/index.html' == false
+                }
+            }
             steps {
                 sh "cp -R ${env.WORKSPACE}/css /var/www/html/"
                 sh "cp -R ${env.WORKSPACE}/js /var/www/html/"
