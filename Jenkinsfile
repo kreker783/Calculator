@@ -12,7 +12,7 @@ pipeline {
 
         stage('install Nginx') {
             steps {
-                sh 'sudo yum -y install nginx'
+                sh 'yum -y install nginx'
             }
         }
 
