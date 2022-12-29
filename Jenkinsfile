@@ -10,12 +10,6 @@ pipeline {
             }
         }
 
-        stage('install Nginx') {
-            steps {
-                sh 'yum -y install nginx'
-            }
-        }
-
         stage('Copy code') {
             steps {
                 sh "cp -R ${env.WORKSPACE}/css /var/www/html/"
