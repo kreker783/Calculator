@@ -18,9 +18,9 @@ pipeline {
 
         stage('Copy code') {
             steps {
-                sh 'cp -R /css /var/www/html/'
-                sh 'cp -R /js /var/www/html/'
-                sh 'cp index.html /var/www/html/'
+                sh 'cp -R ${env.WORKSPACE}/css /var/www/html/'
+                sh 'cp -R ${env.WORKSPACE}/js /var/www/html/'
+                sh 'cp ${env.WORKSPACE}/index.html /var/www/html/'
             }
         }
     }
