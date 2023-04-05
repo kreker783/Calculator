@@ -1,31 +1,26 @@
 pipeline {
-    agent any
+    agent { 
+        label 'Centos' 
+    }
 
     stages {
-        stage('Source') {
+        stage('Cleane app folder') {
             steps {
-                git branch: 'main', 
-                    credentialsId: '8d6d5147-81dc-4d5d-8bf6-2d8c0055c73f', 
-                    url: 'https://github.com/kreker783/Calculator.git'
+                sh 'rm -rf /var/www/html/*'
             }
         }
-
-        stage('install Nginx') {
+        
+        stage('Clone repo') {
             steps {
-                sh 'apt-get install nginx'
+                git branch: 'main', url: 'https://github.com/kreker783/Calculator.git'
+                
+                sh "cp -R /home/jenkins/workspace/Calculator/* /var/www/html"
             }
         }
-
-        stage('Copy code') {
-            when {
-                allOf {
-                    fileExists '/var/www/html/index.html' == false
-                }
-            }
+        
+        stage('Restart httpd server') {
             steps {
-                sh "cp -R ${env.WORKSPACE}/css /var/www/html/"
-                sh "cp -R ${env.WORKSPACE}/js /var/www/html/"
-                sh "cp ${env.WORKSPACE}/index.html /var/www/html/"
+                sh 'systemctl status httpd'
             }
         }
     }
