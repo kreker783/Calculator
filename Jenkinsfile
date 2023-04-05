@@ -18,7 +18,7 @@ pipeline {
             }
         }
         
-        stage('Restart httpd server') {
+        stage('Get status of httpd service') {
             steps {
                 sh 'systemctl status httpd'
             }
